@@ -331,7 +331,7 @@ export const MyReview = () => {
       </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl lg:mx-0">
-          <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-6xl ">SocialGenix</h2><br />
+          <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-6xl ">HIGH PROFILE</h2><br />
           <p className="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">
           Tiktok accounts, Twitter accounts, and Snapchat accounts are available for sale: "Secure, Verified, and Affordable Social Media Accounts for Every Need"
           </p><br />
@@ -407,7 +407,7 @@ export const MyReview = () => {
               </div>
             </div>
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Telegram</h4>
-            <p className="text-gray-600">Socialgenix77</p>
+            <p className="text-gray-600">Highprofile33</p>
           </div>
 
           {/* Call Us */}
@@ -458,7 +458,7 @@ export const MyReview = () => {
               </div>
             </div>
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Discord</h4>
-            <p className="text-gray-600">socialgenix77</p>
+            <p className="text-gray-600">highprofile33</p>
           </div>
         </div>
       </div>
