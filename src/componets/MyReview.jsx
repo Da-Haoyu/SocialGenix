@@ -1,182 +1,3 @@
-// import React, { useState } from 'react';
-
-// export const MyReview = () => {
-//   const [reviews, setReviews] = useState([
-//     {
-//       name: 'Emily Selman',
-//       review: 'This is the bag of my dreams. I took it on my last vacation and was able to fit an absurd amount of snacks for the many long and hungry flights.',
-//       stars: 5,
-//     },
-//     {
-//       name: 'Hector Gibbons',
-//       review: 'Before getting the Ruck Snack, I struggled my whole life with pulverized snacks, endless crumbs, and other heartbreaking snack catastrophes. Now, I can stow my snacks with confidence and style!',
-//       stars: 5,
-//     },
-//     {
-//       name: 'Mark Edwards',
-//       review: 'I love how versatile this bag is. It can hold anything ranging from cookies that come in tins to packages that come in tubes.',
-//       stars: 4,
-//     },
-//   ]);
-
-//   const [newReview, setNewReview] = useState({ name: '', review: '', stars: 0 });
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     if (newReview.name && newReview.review && newReview.stars) {
-//       setReviews([...reviews, newReview]);
-//       setNewReview({ name: '', review: '', stars: 0 });
-//     } else {
-//       alert('Please fill out all fields and provide a rating.');
-//     }
-//   };
-
-//   const handleDelete = (index) => {
-//     setReviews(reviews.filter((_, i) => i !== index));
-//   };
-
-//   const handleEdit = (index) => {
-//     const updatedReview = prompt('Edit your review:', reviews[index].review);
-//     if (updatedReview !== null) {
-//       const updatedReviews = [...reviews];
-//       updatedReviews[index].review = updatedReview;
-//       setReviews(updatedReviews);
-//     }
-//   };
-
-//   return (
-//     <div className="p-6 max-w-4xl mx-auto">
-//       {/* Welcome Section */}
-//       <div className="mb-8 bg-gray-100 p-6 rounded shadow">
-//         <h1 className="text-3xl font-bold text-center mb-4 text-blue-600">Welcome to Dayton Jay Accounts</h1>
-//         <p className="text-center text-gray-700 mb-4">
-//           Tiktok accounts, Twitter accounts, and Snapchat accounts are available for sale. Send a message to select your best Account(s) at competitive prices!
-//         </p>
-//         <div className="text-center mb-4">
-//           <p><strong>Discord:</strong> stiph55 <i className="fab fa-discord ml-2 text-blue-500"></i></p>
-//           <p><strong>Telegram:</strong> Stiph55 <i className="fab fa-telegram-plane ml-2 text-blue-400"></i></p>
-//           <p><strong>WhatsApp:</strong> <a href="https://wa.me/17152301606" className="text-blue-500">https://wa.me/17152301606</a> <i className="fab fa-whatsapp ml-2 text-green-500"></i></p>
-//         </div>
-//         <p className="text-center text-gray-700">
-//           For Account delivery, you get: The Email address and the email password which you can change if you have a preferred one, or you can just change the password—whatever pleases you.
-//         </p>
-//         <p className="text-center text-gray-700">
-//           The delivery is <strong>5 - 7 minutes max after payment</strong>.
-//         </p>
-//       </div>
-
-//       {/* Review Summary */}
-//       <div className="border-b pb-6">
-//         <h2 className="text-2xl font-bold mb-2">Customer Reviews</h2>
-//         <div className="flex items-center mb-4">
-//           <div className="flex items-center text-yellow-500">
-//             {Array.from({ length: 4 }).map((_, index) => (
-//               <svg
-//                 key={index}
-//                 xmlns="http://www.w3.org/2000/svg"
-//                 fill="currentColor"
-//                 viewBox="0 0 24 24"
-//                 className="w-5 h-5"
-//               >
-//                 <path d="M12 .587l3.668 7.429 8.332 1.151-6.064 5.906 1.43 8.302L12 18.896l-7.366 3.879 1.43-8.302-6.064-5.906 8.332-1.151L12 .587z" />
-//               </svg>
-//             ))}
-//             <svg
-//               xmlns="http://www.w3.org/2000/svg"
-//               fill="none"
-//               stroke="currentColor"
-//               viewBox="0 0 24 24"
-//               className="w-5 h-5"
-//             >
-//               <path
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 strokeWidth="2"
-//                 d="M12 .587l3.668 7.429 8.332 1.151-6.064 5.906 1.43 8.302L12 18.896l-7.366 3.879 1.43-8.302-6.064-5.906 8.332-1.151L12 .587z"
-//               />
-//             </svg>
-//           </div>
-//           <span className="ml-2 text-gray-600">Based on {reviews.length} reviews</span>
-//         </div>
-//       </div>
-
-//       {/* Individual Reviews */}
-//       <div className="py-6 space-y-6">
-//         {reviews.map((review, index) => (
-//           <div key={index} className="flex space-x-4 items-start">
-//             <img
-//               src="https://via.placeholder.com/48"
-//               alt="User Avatar"
-//               className="w-12 h-12 rounded-full"
-//             />
-//             <div className="flex-1">
-//               <h4 className="font-semibold text-gray-800 flex items-center justify-between">
-//                 {review.name}
-//                 <span className="text-sm text-gray-500 cursor-pointer" onClick={() => handleDelete(index)}>Delete</span>
-//                 <span className="text-sm text-gray-500 cursor-pointer" onClick={() => handleEdit(index)}>Edit</span>
-//               </h4>
-//               <div className="flex items-center mb-2">
-//                 {Array.from({ length: review.stars }).map((_, i) => (
-//                   <svg
-//                     key={i}
-//                     xmlns="http://www.w3.org/2000/svg"
-//                     fill="currentColor"
-//                     viewBox="0 0 24 24"
-//                     className="w-4 h-4 text-yellow-500"
-//                   >
-//                     <path d="M12 .587l3.668 7.429 8.332 1.151-6.064 5.906 1.43 8.302L12 18.896l-7.366 3.879 1.43-8.302-6.064-5.906 8.332-1.151L12 .587z" />
-//                   </svg>
-//                 ))}
-//               </div>
-//               <p className="text-gray-600">{review.review}</p>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* Write a Review Section */}
-//       <div className="border-t pt-6">
-//         <h3 className="text-lg font-semibold mb-4">Share your thoughts</h3>
-//         <p className="text-gray-600 mb-4">
-//           If you’ve used this product, share your thoughts with other customers
-//         </p>
-//         <form onSubmit={handleSubmit} className="space-y-4">
-//           <input
-//             type="text"
-//             placeholder="Your Name"
-//             value={newReview.name}
-//             onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
-//             className="w-full px-4 py-2 border rounded focus:outline-none"
-//           />
-//           <textarea
-//             placeholder="Your Review"
-//             value={newReview.review}
-//             onChange={(e) => setNewReview({ ...newReview, review: e.target.value })}
-//             className="w-full px-4 py-2 border rounded focus:outline-none"
-//           ></textarea>
-//           <select
-//             value={newReview.stars}
-//             onChange={(e) => setNewReview({ ...newReview, stars: Number(e.target.value) })}
-//             className="w-full px-4 py-2 border rounded focus:outline-none"
-//           >
-//             <option value="0">Select Rating</option>
-//             <option value="1">1 Star</option>
-//             <option value="2">2 Stars</option>
-//             <option value="3">3 Stars</option>
-//             <option value="4">4 Stars</option>
-//             <option value="5">5 Stars</option>
-//           </select>
-//           <button
-//             type="submit"
-//             className="px-4 py-2 bg-blue-500 text-white rounded shadow"
-//           >
-//             Submit Review
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
 
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa6";
@@ -331,7 +152,7 @@ export const MyReview = () => {
       </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl lg:mx-0">
-          <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-6xl ">HIGH PROFILE</h2><br />
+          <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-6xl ">iCIRCLES</h2><br />
           <p className="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">
           Tiktok accounts, Twitter accounts, and Snapchat accounts are available for sale: "Secure, Verified, and Affordable Social Media Accounts for Every Need"
           </p><br />
@@ -407,7 +228,7 @@ export const MyReview = () => {
               </div>
             </div>
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Telegram</h4>
-            <p className="text-gray-600">Highprofile33</p>
+            <p className="text-gray-600">icircles99</p>
           </div>
 
           {/* Call Us */}
@@ -432,7 +253,7 @@ export const MyReview = () => {
               </div>
             </div>
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Whatsapp</h4>
-            <p className="text-gray-600">+17152301606</p>
+            <p className="text-gray-600">+18636648692</p>
             {/* <a href="https://wa.me/17152301606" className="text-blue-500">https://wa.me/17152301606</a> */}
           </div>
 
@@ -458,7 +279,7 @@ export const MyReview = () => {
               </div>
             </div>
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Discord</h4>
-            <p className="text-gray-600">highprofile33</p>
+            <p className="text-gray-600">icircles99</p>
           </div>
         </div>
       </div>
