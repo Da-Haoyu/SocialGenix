@@ -1,107 +1,150 @@
 import { FaTelegramPlane, FaDiscord } from "react-icons/fa";
 import { FaWhatsapp, FaRegUserCircle } from "react-icons/fa";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+// Hardcoded original reviews
+const initialReviews = [
+  {
+    name: 'Samantha Johnson',
+    review: 'I got my TikTok account within minutes, and everything was exactly as promised. Highly recommend!',
+    stars: 5,
+  },
+  {
+    name: '罗伯茨',
+    review: '整个过程很顺利，我的所有问题都得到了及时解答。服务很棒',
+    stars: 5,
+  },
+  {
+    name: 'Maria Gonzalez',
+    review: 'Affordable prices and fast delivery. I’ll definitely buy again',
+    stars: 4,
+  },
+  {
+    name: 'Emma',
+    review: "Hyper fiable ! J'ai acheté des comptes ici plusieurs fois et c'est toujours une expérience formidable.",
+    stars: 5,
+  },
+  {
+    name: 'James Wilson',
+    review: 'This is the best account-selling service I’ve used. Got my Snapchat account in no time',
+    stars: 5,
+  },
+  {
+    name: 'Sophia',
+    review: 'I loved how simple and hassle-free the process was. Everything worked perfectly.',
+    stars: 4,
+  },
+  {
+    name: 'Michael Brown',
+    review: 'The delivery was fast, but I had a minor issue with logging in and it was resolved quickly',
+    stars: 4,
+  },
+  {
+    name: 'Daniel Garcia',
+    review: 'I was skeptical at first, but this service is legit. Fast delivery and good prices.',
+    stars: 5,
+  },
+  {
+    name: 'Olivia',
+    review: 'I got my account without issues.',
+    stars: 4,
+  },
+  {
+    name: 'Taylor',
+    review: 'The account worked perfectly, and I even got instructions on how to secure it. Very thoughtful',
+    stars: 5,
+  },
+  {
+    name: 'Isabella Hernandez',
+    review: 'Fast delivery, but I wish there were more payment options available.',
+    stars: 4,
+  },
+  {
+    name: 'Ethan White',
+    review: 'I’ve recommended this service to my friends. It’s fast, affordable, and trustworthy.',
+    stars: 5,
+  },
+  {
+    name: 'Charlotte Moore',
+    review: 'Got my Twitter account within minutes and was able to log in immediately. Great service',
+    stars: 5,
+  },
+  {
+    name: 'Liam Thomas',
+    review: 'A bit hesitant to try, but everything worked perfectly. I’m very satisfied.',
+    stars: 4,
+  },
+  {
+    name: 'Mia Anderson',
+    review: 'The delivery was quick, and the instructions were clear. I had no issues setting everything up.',
+    stars: 4,
+  },
+  {
+    name: 'Alexander',
+    review: 'I wish I had known about this service earlier! It saved me so much time and effort.',
+    stars: 5,
+  },
+  {
+    name: 'Amelia Jackson',
+    review: 'The best account-selling experience I’ve ever had. Quick and easy',
+    stars: 5,
+  },
+  {
+    name: 'Harris',
+    review: 'Good service overall. Delivery was fast, but there was a slight delay in response from start.',
+    stars: 4,
+  },
+];
 
 export const MyReview = () => {
-  const [reviews, setReviews] = useState([
-    {
-      name: 'Samantha Johnson',
-      review: 'I got my TikTok account within minutes, and everything was exactly as promised. Highly recommend!',
-      stars: 5,
-    },
-    {
-      name: '罗伯茨',
-      review: '整个过程很顺利，我的所有问题都得到了及时解答。服务很棒',
-      stars: 5,
-    },
-    {
-      name: 'Maria Gonzalez',
-      review: 'Affordable prices and fast delivery. I’ll definitely buy again',
-      stars: 4,
-    },
-    {
-      name: 'Emma',
-      review: "Hyper fiable ! J'ai acheté des comptes ici plusieurs fois et c'est toujours une expérience formidable.",
-      stars: 5,
-    },
-    {
-      name: 'James Wilson',
-      review: 'This is the best account-selling service I’ve used. Got my Snapchat account in no time',
-      stars: 5,
-    },
-    {
-      name: 'Sophia',
-      review: 'I loved how simple and hassle-free the process was. Everything worked perfectly.',
-      stars: 4,
-    },
-    {
-      name: 'Michael Brown',
-      review: 'The delivery was fast, but I had a minor issue with logging in and it was resolved quickly',
-      stars: 4,
-    },
-    {
-      name: 'Daniel Garcia',
-      review: 'I was skeptical at first, but this service is legit. Fast delivery and good prices.',
-      stars: 5,
-    },
-    {
-      name: 'Olivia',
-      review: 'I got my account without issues.',
-      stars: 4,
-    },
-    {
-      name: 'Taylor',
-      review: 'The account worked perfectly, and I even got instructions on how to secure it. Very thoughtful',
-      stars: 5,
-    },
-    {
-      name: 'Isabella Hernandez',
-      review: 'Fast delivery, but I wish there were more payment options available.',
-      stars: 4,
-    },
-    {
-      name: 'Ethan White',
-      review: 'I’ve recommended this service to my friends. It’s fast, affordable, and trustworthy.',
-      stars: 5,
-    },
-    {
-      name: 'Charlotte Moore',
-      review: 'Got my Twitter account within minutes and was able to log in immediately. Great service',
-      stars: 5,
-    },
-    {
-      name: 'Liam Thomas',
-      review: 'A bit hesitant to try, but everything worked perfectly. I’m very satisfied.',
-      stars: 4,
-    },
-    {
-      name: 'Mia Anderson',
-      review: 'The delivery was quick, and the instructions were clear. I had no issues setting everything up.',
-      stars: 4,
-    },
-    {
-      name: 'Alexander',
-      review: 'I wish I had known about this service earlier! It saved me so much time and effort.',
-      stars: 5,
-    },
-    {
-      name: 'Amelia Jackson',
-      review: 'The best account-selling experience I’ve ever had. Quick and easy',
-      stars: 5,
-    },
-    {
-      name: 'Harris',
-      review: 'Good service overall. Delivery was fast, but there was a slight delay in response from start.',
-      stars: 4,
-    },
-  ]);
-
+  const [reviews, setReviews] = useState(initialReviews);
   const [newReview, setNewReview] = useState({ name: '', review: '', stars: 5 });
+
+  // Function to load user reviews from localStorage
+  const loadUserReviews = () => {
+    const storedReviews = localStorage.getItem('userReviews');
+    if (storedReviews) {
+      try {
+        const parsedReviews = JSON.parse(storedReviews);
+        if (Array.isArray(parsedReviews)) {
+          setReviews([...initialReviews, ...parsedReviews]);
+        }
+      } catch (error) {
+        console.error('Failed to parse reviews from localStorage:', error);
+      }
+    } else {
+      setReviews(initialReviews); // If no user reviews, just initial
+    }
+  };
+
+  // Load user reviews on first render
+  useEffect(() => {
+    loadUserReviews();
+  }, []);
+
+  // Listen for storage changes (cross-tab sync)
+  useEffect(() => {
+    const handleStorageChange = (event) => {
+      if (event.key === 'userReviews') {
+        loadUserReviews();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (newReview.name.trim() && newReview.review.trim()) {
-      setReviews(prev => [...prev, newReview]);
+      const newReviews = [...reviews, newReview];
+      const userOnlyReviews = newReviews.slice(initialReviews.length);
+
+      localStorage.setItem('userReviews', JSON.stringify(userOnlyReviews));
+      setReviews(newReviews);
+
       setNewReview({ name: '', review: '', stars: 5 });
     }
   };
