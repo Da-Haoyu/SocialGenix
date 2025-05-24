@@ -155,7 +155,7 @@ export const MyReview = () => {
       <section className="relative bg-gray-900 rounded-3xl py-20 px-8 overflow-hidden mb-20">
         <div className="absolute inset-0 opacity-20 bg-gradient-to-tr from-pink-500 to-indigo-500 blur-3xl" />
         <div className="relative z-10 text-center max-w-2xl mx-auto">
-          <h1 className="text-5xl font-extrabold text-white mb-6">iCIRCLES</h1>
+          <h1 className="text-5xl font-extrabold text-white mb-6">TechTrove</h1>
           <p className="text-lg text-gray-300 mb-6">
             Tiktok, Twitter, and Snapchat accounts for sale: <br />
             <span className="font-semibold">Secure, Verified, and Affordable Social Media Accounts for Every Need</span>.
@@ -178,7 +178,7 @@ export const MyReview = () => {
           <ContactCard 
             icon={<FaTelegramPlane className="w-8 h-8 text-blue-500" />} 
             title="Telegram" 
-            contact="icircles99" 
+            contact="Techtrove44" 
           />
           <ContactCard 
             icon={<FaWhatsapp className="w-8 h-8 text-green-500" />} 
@@ -188,7 +188,7 @@ export const MyReview = () => {
           <ContactCard 
             icon={<FaDiscord className="w-8 h-8 text-indigo-500" />} 
             title="Discord" 
-            contact="icircles99" 
+            contact="techtrove44" 
           />
         </div>
       </section>
